@@ -13,9 +13,8 @@ dotenv.config();
 const app = express()
 const port =process.env.PORT
 if(process.env.NODE_ENV==="production"){
-    const __dirname=path.resolve();
-    app.use(express.static(path.join(__dirname,"/Client/build")))
-    app.get("*",(req,res)=>{
+    app.use(express.static("Client/build"))
+    app.get('*',(req,res)=>{
         res.sendFile(path.join(__dirname,"Client","build","index.html"))
     })
 }else{
