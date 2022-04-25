@@ -21,9 +21,8 @@ if(process.env.NODE_ENV==="production"){
 app.use(express.json())
 app.use(express.urlencoded())
 app.use(cors())
-const uri=process.env.MONGODB_URI
 mongoose.connect(
-    uri,
+    process.env.MONGODB_URI,
     {
     useNewUrlParser: true,
     useUnifiedTopology: true
