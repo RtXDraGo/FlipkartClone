@@ -11,11 +11,16 @@ import path from "path"
 import dotenv from 'dotenv'
 dotenv.config();
 const app = express()
-const port =process.env.PORT || 8000
+const port =process.env.PORT
 if(process.env.NODE_ENV==="production"){
-    app.use(express.static("Client/build"))
-    app.get('*',(req,res)=>{
-        res.sendFile(path.resolve(__dirname,'Client','build','index.html'))
+    const __dirname=path.resolve();
+    app.use(express.static(path.join(__dirname,"/Client/build")))
+    app.get("*",(req,res)=>{
+        res.sendFile(path.join(__dirname,"Client","build","index.html"))
+    })
+}else{
+    app.get("/",(req,res)=>{
+        res.send("Api running");
     })
 }
 app.use(express.json())
