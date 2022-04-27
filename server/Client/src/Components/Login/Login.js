@@ -107,7 +107,7 @@ export default function Login({ open, setOpen, setAccount,setLogedinuser }) {
         const { fname, lname, username, email, password, rpassword } = user
         if (password == rpassword) {
             handleclose();
-            axios.post("http://localhost:8000/signin", user)
+            axios.post('/signin', user)
                 .then(res => {
                     setAccount({
                         Username: res.data.user.Username,
@@ -123,7 +123,7 @@ export default function Login({ open, setOpen, setAccount,setLogedinuser }) {
         }
     }
     const submitlogin = () => {
-        axios.post("http://localhost:8000/login", loginuser)
+        axios.post('/login', loginuser)
             .then(
                 res => {
                     handleclose();

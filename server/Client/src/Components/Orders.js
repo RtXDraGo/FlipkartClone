@@ -39,7 +39,7 @@ export default function Orders() {
     const [order1, setOrder1] = useState([]);
     const { account, setAccount } = useContext(logincontext)
     useEffect(() => {
-        axios.get(`http://localhost:8000/orders/${account.uid}`)
+        axios.get(`/orders/${account.uid}`)
             .then(res => setOrder1(res.data))
     }, [])
     return (

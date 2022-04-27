@@ -169,12 +169,12 @@ export default function Cartitem({ }) {
     navigate('/final')
   }
   const delete1=async (id,uid)=>{
-    await axios.post('http://localhost:8000/deletecart',{id,uid})
+    await axios.post('/deletecart',{id,uid})
     .then(res=>setDetails(res.data)
     )
   }
   useEffect(() => {
-    axios.get(`http://localhost:8000/getallcart/${id}`)
+    axios.get(`/getallcart/${id}`)
       .then(res => setDetails(res.data))
   }, [])
 

@@ -146,7 +146,7 @@ export default function Details({ }) {
         dispatch(getProductDetails(id));
     }, [dispatch])//eslint-disable-line react-hooks/exhaustive-deps
     const addtocart = async (p, u, c, m, url, discount, tit) => {
-        await axios.post('http://localhost:8000/addcart', {
+        await axios.post('/addcart', {
             data: {
                 pid: p,
                 uid: u,

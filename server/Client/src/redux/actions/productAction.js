@@ -1,7 +1,8 @@
 import axios from "axios"
+const port=process.env.PORT
 export const getProduct=()=>async(dispatch)=>{
     try{
-        const {data}=await axios.get("http://localhost:8000/getall")
+        const {data}=await axios.get('/getall')
         dispatch({type:'success',payload:data})
         
     }catch(error){
@@ -11,7 +12,7 @@ export const getProduct=()=>async(dispatch)=>{
 }
 export const getProductDetails=(id)=>async(dispatch)=>{
     try{
-        const {data}=await axios.get(`http://localhost:8000/product/${id}`);
+        const {data}=await axios.get(`/product/${id}`);
         dispatch({type:'Getsuccess',payload:data})
         
     }catch(error){

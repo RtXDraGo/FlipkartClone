@@ -234,7 +234,7 @@ export default function Final() {
             order_id: data.id,
             handler: function (response) {
                 try {
-                    axios.post('http://localhost:8000/verifypay', response)
+                    axios.post('/verifypay', response)
                         .then(delitem(account.uid))
                 } catch (error) {
                     console.log(error)
@@ -251,7 +251,7 @@ export default function Final() {
 
     const delitem=(id)=>{
         
-        axios.post('http://localhost:8000/emptycart',{id,details})
+        axios.post('/emptycart',{id,details})
         .then(res=>setDetails(res.data))
         navigate("/")
      }
@@ -265,7 +265,7 @@ export default function Final() {
         setVal3(true)
         setNum2(true)
         try {
-            await axios.post('http://localhost:8000/orders', { amount: pr })
+            await axios.post('/orders', { amount: pr })
                 .then(res => initpayment(res.data))
         }catch(error)
         {
@@ -349,7 +349,7 @@ export default function Final() {
     }
 
     const delete1 = async (id, uid) => {
-        await axios.post('http://localhost:8000/deletecart', { id, uid })
+        await axios.post('/deletecart', { id, uid })
             .then(res => setDetails(res.data))
     }
     const address = (e) => {

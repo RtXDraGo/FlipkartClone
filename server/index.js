@@ -323,9 +323,9 @@ app.get("/product/:id", getProductById);
 app.get('/orders/:id',getorderdetails)
 if(process.env.NODE_ENV==="production"){
     const __dirname=path.resolve();
-    app.use(express.static(path.join(__dirname,"/client/build")))
+    app.use(express.static(path.join(__dirname,"/Client/build")))
     app.get('*',(req,res)=>{
-        res.sendFile(path.join(__dirname,"client","build","index.html"))
+        res.sendFile(path.join(__dirname,"Client","build","index.html"))
     })
 }else{
     app.get("/",(req,res)=>{
